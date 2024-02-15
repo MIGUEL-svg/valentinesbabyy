@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Surprise</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+  }
+  .page {
+    text-align: center;
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+  #heart {
+    font-size: 50px;
+    color: red;
+    animation: heartbeat 1s infinite alternate;
+    margin-bottom: 20px;
+  }
+  @keyframes heartbeat {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.3);
+    }
+  }
+  #flower {
+    width: 100px;
+    height: 150px;
+    margin-top: 50px;
+    transition: transform 1s ease-in-out;
+  }
+  #flower.give {
+    transform: translateX(-50%) translateY(-50%) scale(1.2) rotate(720deg);
+  }
+  #next-button {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div id="page1" class="page active">
+  <div id="heart">&#10084;</div>
+  <h1>Belated Happy Valentine's!</h1>
+  <button id="next-button" onclick="showNextPage()">Next</button>
+</div>
+
+<div id="page2" class="page">
+  <img id="flower" src="images.jpg" alt="flower" height="200px" width="150px">
+  <h1>For You</h1>
+  <button id="next-button" onclick="showNextPage()">Next</button>
+</div>
+
+<div id="page3" class="page">
+  <p>
+    Dear Rafunzel (baby girl),<br>
+    Happy Valentine's Day! belated na actually sorryy<br>
+    I just wanted to take a moment to tell you how much I love and appreciate you.<br>
+    You are my rock, my inspiration, and my everything.<br>
+    I am so grateful to have you in my life.<br>
+    I'm sorry I couldn't give you real flowers this Valentine's Day,<br>
+    but please know that my love for you is real and everlasting.<br>
+    I love you always and forever!<br>
+    Yours forever,<br>
+    Apol
+  </p>
+</div>
+
+<script>
+  var currentPage = 1;
+
+  function showNextPage() {
+    var nextPage = currentPage + 1;
+    document.getElementById('page' + currentPage).classList.remove('active');
+    document.getElementById('page' + nextPage).classList.add('active');
+    currentPage = nextPage;
+  }
+</script>
+</body>
+</html>
